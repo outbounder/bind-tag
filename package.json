@@ -1,0 +1,24 @@
+{
+  "name": "bind-tag",
+  "version": "0.0.1",
+  "description": "Adds binding support to riotjs Tags",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "proxy-polyfill": "^0.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Boris Filipov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/outbounder/bind-tag.git"
+  },
+  "bugs": {
+    "url": "https://github.com/outbounder/bind-tag/issues"
+  },
+  "homepage": "https://github.com/outbounder/bind-tag#readme"
+}
