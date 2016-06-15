@@ -99,7 +99,7 @@ module.exports = function (tag) {
           bindElementChangeToModel(elementsWithModels[i])
         }
       }
-      tag.on('updated', bindModelsHandler)
+      tag.on('mount', bindModelsHandler)
     }
   }
 
@@ -117,7 +117,7 @@ module.exports = function (tag) {
       }
     }
     if (bindModelsHandler) {
-      tag.off('updated', bindModelsHandler)
+      tag.off('mount', bindModelsHandler)
       bindModelsHandler = null
     }
   })
