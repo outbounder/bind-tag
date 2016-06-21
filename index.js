@@ -79,7 +79,7 @@ module.exports = function (tag) {
     }
     el.addEventListener('change', handler)
     if (el.attributes['multiple']) {
-      var value = _.get(tag, modelPath)
+      var value = _.get(tag, modelPath) || []
       for (var i = 0 ; i < el.children.length ; i++) {
         var option = el.children[i]
         if (value.indexOf(option.value) !== -1) {
