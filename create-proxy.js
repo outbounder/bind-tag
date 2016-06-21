@@ -13,6 +13,7 @@ var proxy_cache = [
   */
 ]
 var canProxy = function (input) {
+  if (input instanceof Date) return false
   return (Array.isArray(input) || (typeof input === 'object' && input))
 }
 var getCached = function (target) {
