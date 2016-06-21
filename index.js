@@ -78,7 +78,17 @@ module.exports = function (tag) {
       _.set(tag, modelPath, e.target.value)
     }
     el.addEventListener('change', handler)
-    el.value = _.get(tag, modelPath)
+    if (el.attributes['multiple']) {
+      var value = _.get(tag, modelPath)
+      for (var i = 0 ; i < el.children.length ; i++) {
+        var option = el.children[i]
+        if (value.indexOf(option.value) !== -1) {
+          option.selected = true
+        }
+      }
+    } else {
+      el.value = _.get(tag, modelPath)
+    }
     modelBindCache.push({
       el: el,
       fn: handler
