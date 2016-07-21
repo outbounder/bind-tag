@@ -73,13 +73,14 @@ module.exports = function (tag) {
   }
 
   var bindElementChangeToModel = function (el) {
+    var value
     var modelPath = el.attributes['tag-value'].value.split('#')[1]
     var handler = function (e) {
       _.set(tag, modelPath, e.target.value)
     }
     el.addEventListener('change', handler)
     if (el.attributes['multiple']) {
-      var value = _.get(tag, modelPath) || []
+      value = _.get(tag, modelPath) || []
       for (var i = 0 ; i < el.children.length ; i++) {
         var option = el.children[i]
         if (value.indexOf(option.value) !== -1) {
@@ -87,7 +88,15 @@ module.exports = function (tag) {
         }
       }
     } else {
-      el.value = _.get(tag, modelPath)
+      value = _.get(tag, modelPath)
+
+      if (typeof value === 'undefined' &&
+          ['button', 'radio', 'checkbox'].indexOf(el.type) === -1 &&
+          ['INPUT', 'TEXTAREA'].indexOf(el.nodeName) !== -1) {
+        value = null
+      }
+
+      el.value = value
     }
     modelBindCache.push({
       el: el,
