@@ -1,6 +1,6 @@
 {
   "name": "bind-tag",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Adds binding support to riotjs Tags",
   "main": "index.js",
   "dependencies": {
